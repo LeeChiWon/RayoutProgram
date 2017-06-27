@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Img/layout.png</file>
+        <file>Lang/Lang_ko_KR.qm</file>
+        <file>Img/info.png</file>
+    </qresource>
+</RCC>
