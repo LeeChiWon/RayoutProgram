@@ -7,10 +7,10 @@
 #define LS 0
 #define AB 1
 #define PRO 2
-#define LS_COLOR_1 qRgb(64,64,64)
+#define LS_COLOR_1 qRgb(63,63,63)
 #define LS_COLOR_2 qRgb(127,127,127)
 #define AB_COLOR_1 qRgb(84,84,84)
-#define AB_COLOR_2 qRgb(164,164,164)
+#define AB_COLOR_2 qRgb(160,160,164)
 
 namespace Ui {
 class ScreenShotWidget;

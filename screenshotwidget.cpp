@@ -137,10 +137,10 @@ void ScreenShotWidget::ImageSave(QImage img)
         SaveFileName.append(".jpg");
         break;
     case AB:
-        TempImg1=floodFill.floodfill(&TempImg1,QPoint(1,1),AB_COLOR_1);
+        TempImg1=floodFill.floodfill(&TempImg1,QPoint(1,1),AB_COLOR_2);
         for(int i=0; i<PointList.count(); i++)
         {
-            TempImg1=floodFill.floodfill(&TempImg1,PointList.at(i),AB_COLOR_2);
+            TempImg1=floodFill.floodfill(&TempImg1,PointList.at(i),AB_COLOR_1);
         }
 
      /*   TempImg1=floodFill.floodfill(&TempImg1,QPoint(90,50),AB_COLOR_2);
