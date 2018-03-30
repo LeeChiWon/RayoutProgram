@@ -33,6 +33,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QSettings *Setting;
 };
 
 #endif // MAINWINDOW_H

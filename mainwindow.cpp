@@ -14,8 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     Trans.load(":/Lang/Lang_ko_KR.qm");
     QApplication::installTranslator(&Trans);
     ui->retranslateUi(this);
+    Setting=new QSettings("EachOne","RayoutProgram");
+    ui->lineEdit->setText(Setting->value("FolderPath").toString());
 
- /*   QImage img("d:/2.png");
+    /*   QImage img("d:/2.png");
 
     img.invertPixels(QImage::InvertRgba);
     QImage img1(img.width(),img.height(),QImage::Format_Indexed8);
@@ -64,7 +66,7 @@ void MainWindow::on_pushButton_ScreenShot_clicked()
 {
     if(screenShotWidget==NULL)
     {
-        screenShotWidget=new ScreenShotWidget(ui->comboBox->currentIndex(),ui->lineEdit->text());      
+        screenShotWidget=new ScreenShotWidget(ui->comboBox->currentIndex(),ui->lineEdit->text());
         connect(screenShotWidget,SIGNAL(destroyed(QObject*)),this,SLOT(ScreenShotWidget_destroyed(QObject*)));
         connect(screenShotWidget,SIGNAL(keyPressEscape()),this,SLOT(keyPressEscape()));
     }
@@ -76,8 +78,14 @@ void MainWindow::on_pushButton_ScreenShot_clicked()
 //
 void MainWindow::on_pushButton_SavePath_clicked()
 {
-    QString FilePath=QString(tr("S://ControlData/Doc/Board/BMP/"));
-    ui->lineEdit->setText(QFileDialog::getSaveFileName(this,tr("Save Path"),FilePath,tr("")));//tr("All Files (*.*)")));//jpg (*.jpg);;bmp (*.bmp);;png (*.png)")));
+    // QString FilePath=QString(tr("S://ControlData/Doc/Board/BMP/"));
+    //  ui->lineEdit->setText(QFileDialog::getSaveFileName(this,tr("Save Path"),FilePath,tr("")));//tr("All Files (*.*)")));//jpg (*.jpg);;bmp (*.bmp);;png (*.png)")));
+    QString FilePath=QFileDialog::getSaveFileName(this,tr("Save Path"),Setting->value("FolderPath").toString(),tr(""));
+    ui->lineEdit->setText(FilePath);
+    if(FilePath!=Setting->value("FolderPath").toString())
+    {
+        Setting->setValue("FolderPath",FilePath);
+    }
 }
 
 void MainWindow::ScreenShotWidget_destroyed(QObject *obj)

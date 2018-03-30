@@ -134,7 +134,8 @@ void ScreenShotWidget::ImageSave(QImage img)
         /*TempImg1=floodFill.floodfill(&TempImg1,QPoint(95,173),LS_COLOR_2);
         TempImg1=floodFill.floodfill(&TempImg1,QPoint(200,85),LS_COLOR_2);
         TempImg1=floodFill.floodfill(&TempImg1,QPoint(195,215),LS_COLOR_2);*/
-        SaveFileName.append(".jpg");
+        //SaveFileName.append(".jpg");
+        SaveFileName.append(".bmp");
         break;
     case AB:
         TempImg1=floodFill.floodfill(&TempImg1,QPoint(1,1),AB_COLOR_2);
